@@ -7,4 +7,4 @@ const usersControllers = new UsersControllers();
 
 usersRouter.post('/', usersControllers.create);
 
-export default usersRoute;
+export default usersRouter;
