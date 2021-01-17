@@ -2,9 +2,14 @@ import { Router } from 'express';
 import { celebrate, Segments, Joi } from 'celebrate';
 
 import UsersControllers from '../controllers/UsersControllers';
+import PointController from '../controllers/PointController';
+
+import ensureAuthenticated from '../middlewares/ensureAuthenticated';
 
 const usersRouter = Router();
+
 const usersControllers = new UsersControllers();
+const pointController = new PointController();
 
 usersRouter.post(
   '/',
@@ -17,5 +22,7 @@ usersRouter.post(
   }),
   usersControllers.create,
 );
+
+usersRouter.patch('/points', ensureAuthenticated, pointController.update);
 
 export default usersRouter;
