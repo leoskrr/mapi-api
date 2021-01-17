@@ -35,6 +35,7 @@ class CreateUserService {
     const user = await this.usersRepository.create({
       name,
       email,
+      points: 0,
       password: hashedPassword,
     });
 

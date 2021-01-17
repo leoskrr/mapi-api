@@ -19,6 +19,9 @@ class User {
   @Column('varchar')
   email: string;
 
+  @Column('integer')
+  points: number;
+
   @Column('varchar')
   @Exclude()
   password?: string;
