@@ -1,12 +1,10 @@
 import { injectable, inject } from 'tsyringe';
-
-// import AppError from '@shared/errors/AppError';
+import path from 'path';
 
 import IMailProvider from '@shared/container/providers/MailProvider/models/IMailProvider';
 import AppError from '@shared/errors/AppError';
 import IUsersRepository from '../repositories/IUsersRepository';
 import IUserTokensRepository from '../repositories/IUserTokensRepository';
-// import User from '../infra/typeorm/entities/User';
 
 interface Request {
   email: string;
@@ -34,6 +32,13 @@ class SendForgotPasswordEmailService {
 
     const { token } = await this.userTokensRepository.generate(user.id);
 
+    const forgotPasswordTemplate = path.resolve(
+      __dirname,
+      '..',
+      'views',
+      'forgot_password.hbs',
+    );
+
     await this.mailProvider.sendMail({
       to: {
         name: user.name,
@@ -42,10 +47,10 @@ class SendForgotPasswordEmailService {
 
       subject: '[Equipe 286] Recuperação de Senha',
       templateData: {
-        template: 'Olá, {{name}}: {{token}}',
+        file: forgotPasswordTemplate,
         variables: {
           name: user.name,
-          token,
+          link: `http://localhost:3000/reset_passsword?token=${token}`,
         },
       },
     });
