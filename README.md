@@ -1,6 +1,11 @@
+<img src="https://github.com/leoskrr/mapi-api/blob/main/.github/img/mapi-cover.png" width=1000 height=250/>
+
 <h1>MAPI - API</h1>
 
 :wave:	Olá! Essa é a API da aplicação Mapi construída durante a segunda edição do Hackathon CCR! <br/>O nosso foco é ajudar jovens a gerarem rendas.
+
+<h2>O que é o Mapi ?</h2>
+O Mapi é uma aplicação web para jovens entre 18 e 24 anos que querem empreender e não sabem por onde começar. Abriremos o caminho para uma jornada no conhecimento criativo e processual. Fazendo com que o jovem reflita sobre si e aprenda processos de negócio usando ferramentas como Design Thinking para formar uma ideia e mudança de atitude que gere renda e resultados.
 
 <h2>Rotas:</h2>
 
